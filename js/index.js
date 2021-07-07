@@ -1,4 +1,8 @@
+import { RecipeManager } from "./recipeManager.js";
+
 const recipeManager = new RecipeManager(0);
+recipeManager.load();
+recipeManager.render();
 
 // Select all form fields and buttons.
 const recipeForm = document.querySelector("#recipe-form");
@@ -105,6 +109,7 @@ const clearFormFields = () => {
   validTime.style.display = "none";
   validIngredients.style.display = "none";
   validInstructions.style.display = "none";
+  ingredientsList.style.display = "none";
 };
 
 //Add event listener to the "add recipe" button.
@@ -114,7 +119,6 @@ recipeForm.addEventListener("submit", (e) => {
   //Call the validation functions of each field
   nameValidation();
   timeValidation();
-  ingredientsValidation();
   instructionsValidation();
 
   if (validationFail > 0) {
@@ -124,13 +128,24 @@ recipeForm.addEventListener("submit", (e) => {
     recipeManager.addRecipe(
       recipeName.value,
       recipeTime.value,
-      recipeIngredients.value,
+      // recipeIngredients.value,
       recipeInstructions.value
     );
   }
   console.log(recipeManager.recipes);
-  clearFormFields();
+  recipeManager.save();
   recipeManager.render();
+  clearFormFields();
 });
 
 /* End validation form */
+
+/* Add ingredient */
+const addIngredient = document.querySelector("#save-ingredient");
+const ingredientsList = document.querySelector("#ingredients-list");
+
+addIngredient.addEventListener("click", () => {
+  ingredientsList.innerHTML += `<li class="border-bottom m-3"> ${recipeIngredients.value} </li>`;
+  recipeManager.addIngredient(recipeIngredients.value);
+  recipeIngredients.value = "";
+});

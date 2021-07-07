@@ -1,0 +1,39 @@
+h1 {
+  font-size: 4rem;
+}
+
+.btn-style {
+  background-color: #edd6c0;
+  padding: 1.5rem;
+  border-radius: 3rem;
+  width: fit-content;
+}
+
+.btn-style img {
+  width: 1.2rem;
+}
+
+.modal-content {
+  background-color: #edd6c0;
+}
+
+.btn-modal {
+  background-color: #616b3d;
+  color: white;
+}
+
+.btn-modal-close {
+  background-color: #f5f3f0;
+}
+section {
+  background-color: #c6996e;
+}
+
+.card-body {
+  background-color: #edd6bf;
+  /* background-color: #ead1af; */
+}
+
+footer {
+  background-color: #6a512b;
+}

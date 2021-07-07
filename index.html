@@ -12,26 +12,31 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="css/styles.css">
 
     <title>My Recipes</title>
   </head>
   <body>
-    <header>
-      <h1>My Delicious Recipes</h1>
-    </header>
-    <main>
-      <!-- Modal form -->
+    <header class="position-relative">
       <!-- Button trigger modal -->
+      <img class="img-fluid" src="images/banner.jpg" alt="banner">
+      <div class="d-flex flex-column align-items-center position-absolute top-50
+      start-50
+      translate-middle">
+      <h1 class="text-white mb-5">My Delicious Recipes</h1>
       <button
         type="button"
-        class="btn btn-primary"
+        class="btn btn-style"
         data-bs-toggle="modal"
         data-bs-target="#formModal"
       >
-        New Recipe
+        <img class="plus-icon me-2" src="images/plus.png" alt=""> New Recipe
       </button>
 
-      <!-- Modal -->
+      </div>
+    </header>
+    <main>
+      <!-- Modal form -->
       <div
         class="modal fade"
         id="formModal"
@@ -67,7 +72,7 @@
                   </div>
                   <div class="col">
                     <label for="recipe-time" class="form-label"
-                      >Cooking Time</label
+                      >Preparation Time</label
                     >
                     <select
                       type="text"
@@ -88,13 +93,15 @@
                     <label for="recipe-ingredients" class="form-label"
                       >Ingredients</label
                     >
-                    <textarea
+                    <input
                       class="form-control"
                       type="text"
                       id="recipe-ingredients"
-                      required
-                    ></textarea>
+                      
+                    />
                     <div class="valid-feedback" id="valid-ingredients"></div>
+                    <button class="btn btn-modal mt-2" type="button" id="save-ingredient">Add</button>
+                    <ul id="ingredients-list"></ul>
                   </div>
                 </div>
                 <div class="row">
@@ -125,12 +132,12 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-modal-close"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-modal">
                 Add Recipe
               </button>
             </div>
@@ -139,27 +146,41 @@
         </div>
       </div>
       <!-- Cards -->
-      <article class="card w-50">
-        <div class="card-body">
-          <h5 class="card-title">Chicken Alfredo</h5>
-          <span>Time: 30 mins</span>
-          <h6>Ingredients</h6>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p> 
-          <h6>Instructions</h6>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
+      <section class="d-flex justify-content-center">
 
-          <button type="button" class="btn btn-primary">Edit</button>
-          <button type="button" class="btn btn-danger">Delete</button>
-        </div>
-      </article>
-      <article class="card w-50" id="new-recipe"></article>
+        <article class="card w-25">
+          <div class="card-body ">
+            <div class="d-flex justify-content-between">
+
+              <h5 class="card-title">Chicken Alfredo</h5>
+              <span>Time: 30 mins</span>
+            </div>
+            <h6>Ingredients</h6>
+            <ul class="card-text">
+              <li>Butter</li>
+              <li>Pure Cream</li>
+              <li>Chicken</li>
+              <li>Bacon</li>
+              <li>Parmesan Cheese</li>
+              <li>Spinach</li>
+            </ul> 
+            <h6>Instructions</h6>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+  
+            <button type="button" class="btn btn-modal-close">Edit</button>
+            <button type="button" class="btn btn-modal">Delete</button>
+          </div>
+        </article>
+        <article class="w-25" id="new-recipe"></article>
+      </section>
     </main>
+
+    <footer class="">
+      <p>&copy</p>
+    </footer>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script
@@ -167,7 +188,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="js/recipeManager.js"></script>
-    <script src="js/index.js"></script>
+    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/recipeManager.js"></script>
   </body>
 </html>
