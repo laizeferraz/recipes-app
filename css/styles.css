@@ -18,20 +18,34 @@ h1 {
 }
 
 .btn-modal {
-  background-color: #616b3d;
+  background-color: rgba(97, 107, 61, 1);
   color: white;
 }
 
-.btn-modal-close {
-  background-color: #f5f3f0;
+.btn-modal:hover {
+  background-color: rgba(97, 107, 61, 0.5);
 }
-section {
-  background-color: #c6996e;
+
+.btn-modal-close {
+  background-color: rgba(146, 67, 1, 1);
+  color: #ffffff;
+}
+
+.btn-modal-close:hover {
+  background-color: rgba(146, 67, 1, 0.5);
 }
 
 .card-body {
-  background-color: #edd6bf;
-  /* background-color: #ead1af; */
+  background-color: #f5f5f5;
+  box-shadow: 20px 20px 35px #d0d0d0, -20px -20px 35px #ffffff;
+}
+
+.icon-color {
+  color: #6a512b;
+}
+
+.list-layout li {
+  list-style-type: none;
 }
 
 footer {

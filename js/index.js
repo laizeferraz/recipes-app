@@ -9,6 +9,7 @@ const recipeForm = document.querySelector("#recipe-form");
 const recipeName = document.querySelector("#recipe-name");
 const validName = document.querySelector("#valid-name");
 const recipeTime = document.querySelector("#recipe-time");
+const recipeServings = document.querySelector("#servings");
 const validTime = document.querySelector("#valid-time");
 const recipeIngredients = document.querySelector("#recipe-ingredients");
 const validIngredients = document.querySelector("#valid-ingredients");
@@ -59,14 +60,17 @@ recipeTime.addEventListener("input", timeValidation);
 // Recipe ingredients validation
 // Create a function validation
 const ingredientsValidation = () => {
-  if (recipeIngredients.value.length > 10) {
+  if (
+    recipeIngredients.value.length !== "" &&
+    recipeManager.ingredients.length >= 3
+  ) {
     validIngredients.style.display = "block";
     validIngredients.innerHTML = "Looks good!";
     validIngredients.style.color = "green";
     recipeIngredients.style.borderColor = "green";
   } else {
     validIngredients.style.display = "block";
-    validIngredients.innerHTML = "You must give the ingredients.";
+    validIngredients.innerHTML = "You must give at least 3 ingredients.";
     validIngredients.style.color = "red";
     recipeIngredients.style.borderColor = "red";
     validationFail++;
@@ -119,20 +123,23 @@ recipeForm.addEventListener("submit", (e) => {
   //Call the validation functions of each field
   nameValidation();
   timeValidation();
+  ingredientsValidation();
   instructionsValidation();
 
   if (validationFail > 0) {
+    console.log(validationFail);
     validationFail = 0;
     return;
   } else {
     recipeManager.addRecipe(
       recipeName.value,
       recipeTime.value,
-      // recipeIngredients.value,
+      recipeServings.value,
       recipeInstructions.value
     );
   }
   console.log(recipeManager.recipes);
+  console.log(validationFail);
   recipeManager.save();
   recipeManager.render();
   clearFormFields();

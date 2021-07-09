@@ -1,21 +1,33 @@
-const createRecipeHTML = (name, time, ingredientsList, instructions) => {
+const createRecipeHTML = (
+  name,
+  time,
+  servings,
+  ingredientsList,
+  instructions
+) => {
   const html = `
-  <div class="card">
-  <div class="card-body">
-  <div class="d-flex justify-content-between">
-  <h5 class="card-title">${name}</h5>
-  <span>Time: ${time}</span>
+  <div class="col card my-5 me-2 px-0">
+  <div class="card-body ">
+  <div class="d-flex justify-content-between align-items-center">
+  <h2 class="card-title">${name}</h2>
+  <div>
+  <i class="fi-rr-clock icon-color"></i><span">${time}</span>
+  <i class="fi-rr-user icon-color"></i><span>${servings}</span>
   </div>
-  <h6>Ingredients</h6>
-  <ul>${ingredientsList
+  </div>
+  <div></div>
+  <h5>Ingredients</h5>
+  <ul class="d-flex flex-column flex-wrap list-layout">${ingredientsList
     .map((element) => {
-      return `<li>${element}</li>`;
+      return `<li><i class="fi-rr-check me-2"></i></i>${element}</li>`;
     })
     .join("")}</ul>
-  <h6>Instructions</h6>
+  <div></div>
+  <h5>Instructions</h5>
   <p class="card-text">
     ${instructions}
   </p>
+  <div></div>
   <button type="button" class="btn btn-modal-close">Edit</button>
   <button type="button" class="btn btn-modal">Delete</button>
 </div>
@@ -36,11 +48,12 @@ export class RecipeManager {
     // console.log(this.ingredients);
   }
 
-  addRecipe(name, time, instructions) {
+  addRecipe(name, time, servings, instructions) {
     const newRecipe = {
       id: this.id++,
       name,
       time,
+      servings,
       ingredients: this.ingredients,
       instructions,
     };
@@ -78,10 +91,10 @@ export class RecipeManager {
       const recipeHtml = createRecipeHTML(
         recipe.name,
         recipe.time,
+        recipe.servings,
         ingredientsList,
         recipe.instructions
       );
-      console.log(recipeHtml);
       // Push it to the recipesHtmlList array
       recipeHtmlList.push(recipeHtml);
     }

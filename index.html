@@ -12,8 +12,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" href="css/styles.css">
-
     <title>My Recipes</title>
   </head>
   <body>
@@ -35,7 +35,7 @@
 
       </div>
     </header>
-    <main>
+    <main class="container-fluid">
       <!-- Modal form -->
       <div
         class="modal fade"
@@ -70,23 +70,27 @@
                     />
                     <div id="valid-name"></div>
                   </div>
+                </div>
+                <div class="row">
                   <div class="col">
                     <label for="recipe-time" class="form-label"
                       >Preparation Time</label
                     >
-                    <select
-                      type="text"
-                      class="form-control"
-                      id="recipe-time"
-                      required
-                    >
-                      <option value="select a time">Select a time</option>
-                      <option value="30 mins">30 Mins</option>
-                      <option value="45 mins">45 Mins</option>
-                      <option value="60 mins">60 Mins</option>
-                    </select>
+                    <input type="text"
+                    class="form-control"
+                    id="recipe-time" required/>
                     <div id="valid-time"></div>
                   </div>
+                  <div class="col">
+                    <label for="servings" class="form-label"
+                      >Servings</label
+                    >
+                    <input type="text"
+                    class="form-control"
+                    id="servings" required/>
+                    <div id="valid-time"></div>
+                  </div>
+
                 </div>
                 <div class="row">
                   <div class="col">
@@ -146,9 +150,8 @@
         </div>
       </div>
       <!-- Cards -->
-      <section class="d-flex justify-content-center">
 
-        <article class="card w-25">
+        <!-- <article class="card w-25 my-5">
           <div class="card-body ">
             <div class="d-flex justify-content-between">
 
@@ -173,9 +176,8 @@
             <button type="button" class="btn btn-modal-close">Edit</button>
             <button type="button" class="btn btn-modal">Delete</button>
           </div>
-        </article>
-        <article class="w-25" id="new-recipe"></article>
-      </section>
+        </article> -->
+        <div class="row row-cols-sm-2 row-cols-xl-4 justify-content-center" id="new-recipe"></div>
     </main>
 
     <footer class="">
