@@ -19,7 +19,7 @@ const createRecipeHTML = (
   <h5>Ingredients</h5>
   <ul class="d-flex flex-column flex-wrap list-layout">${ingredientsList
     .map((element) => {
-      return `<li><i class="fi-rr-check me-2"></i></i>${element}</li>`;
+      return `<li><i class="fi-rr-check me-2"></i>${element}</li>`;
     })
     .join("")}</ul>
   <div></div>
@@ -45,7 +45,7 @@ export class RecipeManager {
 
   addIngredient(ingredient) {
     this.ingredients.push(ingredient);
-    // console.log(this.ingredients);
+    console.log(this.ingredients);
   }
 
   addRecipe(name, time, servings, instructions) {
@@ -58,7 +58,8 @@ export class RecipeManager {
       instructions,
     };
     this.recipes.push(newRecipe);
-    // console.log(this.recipes);
+    console.log(this.recipes);
+    console.log(this.ingredients);
   }
 
   getTaskById(recipeId) {
