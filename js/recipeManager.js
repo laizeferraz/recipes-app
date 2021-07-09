@@ -45,7 +45,6 @@ export class RecipeManager {
 
   addIngredient(ingredient) {
     this.ingredients.push(ingredient);
-    console.log(this.ingredients);
   }
 
   addRecipe(name, time, servings, instructions) {
@@ -58,8 +57,6 @@ export class RecipeManager {
       instructions,
     };
     this.recipes.push(newRecipe);
-    console.log(this.recipes);
-    console.log(this.ingredients);
   }
 
   getTaskById(recipeId) {

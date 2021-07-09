@@ -2,6 +2,10 @@ h1 {
   font-size: 4rem;
 }
 
+.img-height {
+  max-height: 20%;
+}
+
 .btn-style {
   background-color: #edd6c0;
   padding: 1.5rem;
