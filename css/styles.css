@@ -1,44 +1,62 @@
-h1 {
-  font-size: 4rem;
+body {
+  font-family: "Poppins", sans-serif;
 }
 
-.img-height {
-  max-height: 20%;
+/* Header Style */
+h1 {
+  font-size: 4rem;
+  color: #3c3522;
+  font-weight: 700;
+}
+
+.banner-height {
+  background-image: url(../images/banner4.jpg);
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .btn-style {
-  background-color: #edd6c0;
-  padding: 1.5rem;
+  background-color: #ca9b41;
+  color: #ffffff;
+  padding: 1.2rem;
   border-radius: 3rem;
   width: fit-content;
 }
 
-.btn-style img {
-  width: 1.2rem;
+.btn-style:hover {
+  background-color: rgba(202, 155, 65, 0.7);
+  color: #3c3522;
 }
 
+/* Form Style */
 .modal-content {
-  background-color: #edd6c0;
+  background-color: #e0dcda;
 }
 
 .btn-modal {
-  background-color: rgba(97, 107, 61, 1);
+  background-color: rgba(177, 74, 31, 1);
   color: white;
 }
 
 .btn-modal:hover {
-  background-color: rgba(97, 107, 61, 0.5);
+  background-color: rgba(177, 74, 31, 0.5);
 }
 
 .btn-modal-close {
-  background-color: rgba(146, 67, 1, 1);
+  background-color: rgba(173, 173, 173, 1);
   color: #ffffff;
 }
 
 .btn-modal-close:hover {
-  background-color: rgba(146, 67, 1, 0.5);
+  background-color: rgba(173, 173, 173, 0.5);
 }
 
+main {
+  height: 100vh;
+}
+/* Card Style */
 .card-body {
   background-color: #f5f5f5;
   box-shadow: 20px 20px 35px #d0d0d0, -20px -20px 35px #ffffff;
@@ -53,5 +71,18 @@ h1 {
 }
 
 footer {
-  background-color: #6a512b;
+  background-color: #e0dcda;
+  height: 10rem;
+  color: #3c3522;
+  font-weight: 100;
+}
+
+.link-style-footer {
+  color: #b14a1f;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.link-style-footer:hover {
+  color: #76904b;
 }

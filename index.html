@@ -12,25 +12,29 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" href="css/styles.css">
     <title>My Recipes</title>
   </head>
   <body>
-    <header class="position-relative">
+    <header class="position-relative banner-height">
       <!-- Button trigger modal -->
-      <img class="img-fluid img-height" src="images/banner.jpg" alt="banner">
+
       <div class="d-flex flex-column align-items-center position-absolute top-50
       start-50
       translate-middle">
-      <h1 class="text-white mb-5">My Delicious Recipes</h1>
+      <h1 class="mb-5">My Delicious Recipes</h1>
       <button
         type="button"
         class="btn btn-style"
         data-bs-toggle="modal"
         data-bs-target="#formModal"
       >
-        <img class="plus-icon me-2" src="images/plus.png" alt=""> New Recipe
+      <i class="fi-rr-plus me-2"></i> New Recipe
       </button>
 
       </div>
@@ -50,7 +54,7 @@
               <h5 class="modal-title" id="formModalLabel">Recipe Details</h5>
               <button
                 type="button"
-                class="btn-close"
+                class="btn-close clean-form"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
@@ -136,9 +140,9 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-modal-close"
+                class="btn btn-modal-close clean-form"
                 data-bs-dismiss="modal"
-                id="close-form"
+                id="clean-form"
               >
                 Close
               </button>
@@ -181,8 +185,8 @@
         <div class="row mx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center" id="new-recipe"></div>
     </main>
 
-    <footer class="">
-      <p>&copy</p>
+    <footer class="d-flex align-items-center justify-content-center">
+      <p class="text-uppercase">Designed & developed by <a class="link-style-footer" href="www.laizeferraz.com">Laize Ferraz</a></p>
     </footer>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

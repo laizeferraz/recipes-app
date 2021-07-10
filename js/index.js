@@ -16,7 +16,7 @@ const recipeIngredients = document.querySelector("#recipe-ingredients");
 const validIngredients = document.querySelector("#valid-ingredients");
 const recipeInstructions = document.querySelector("#recipe-instructions");
 const validInstructions = document.querySelector("#valid-instructions");
-const closeForm = document.querySelector("#close-form");
+const closeForm = document.querySelector("#clean-form");
 let validationFail = 0;
 
 /* Start validation form */
@@ -96,7 +96,7 @@ const ingredientsValidation = () => {
   }
 };
 // Add an event listener to the input field.
-recipeIngredients.addEventListener("input", ingredientsValidation);
+recipeIngredients.addEventListener("click", ingredientsValidation);
 
 // Recipe instructions validation.
 // Create a function validation.
@@ -152,6 +152,7 @@ recipeForm.addEventListener("submit", (e) => {
 
   // validationFail = 0;
   if (validationFail > 0) {
+    validationFail = 0;
     return;
   } else {
     recipeManager.addRecipe(
