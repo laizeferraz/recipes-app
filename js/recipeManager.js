@@ -1,4 +1,5 @@
 const createRecipeHTML = (
+  id,
   name,
   time,
   servings,
@@ -6,7 +7,7 @@ const createRecipeHTML = (
   instructions
 ) => {
   const html = `
-  <div class="col card my-5 me-2 px-0">
+  <div class="col card my-5 me-2 px-0" data-recipe-id="${id}">
   <div class="card-body ">
   <div class="d-flex justify-content-between align-items-center">
   <h2 class="card-title">${name}</h2>
@@ -29,7 +30,7 @@ const createRecipeHTML = (
   </p>
   <div></div>
   <button type="button" class="btn btn-modal-close">Edit</button>
-  <button type="button" class="btn btn-modal">Delete</button>
+  <button type="button" class="btn btn-modal delete-button">Delete</button>
 </div>
 </div>
   `;
@@ -73,6 +74,7 @@ export class RecipeManager {
       }
     }
     // Return the found task
+    console.log(foundRecipe);
     return foundRecipe;
   }
 
@@ -87,6 +89,7 @@ export class RecipeManager {
       const ingredientsList = recipe.ingredients;
       // Create the recipe html
       const recipeHtml = createRecipeHTML(
+        recipe.id,
         recipe.name,
         recipe.time,
         recipe.servings,
@@ -138,5 +141,26 @@ export class RecipeManager {
       // Convert the currentId to a number and store it in our TaskManager
       this.id = Number(id);
     }
+  }
+
+  deleteRecipe(recipeId) {
+    // Create an empty array and store it in a new variable, newTasks
+    const newRecipes = [];
+
+    // Loop over the tasks
+    for (let i = 0; i < this.recipes.length; i++) {
+      // Get the current task in the loop
+      const recipe = this.recipes[i];
+      console.log(recipe);
+
+      // Check if the task id is not the task id passed in as a parameter
+      if (recipe.id !== recipeId) {
+        // Push the task to the newTasks array
+        newRecipes.push(recipe);
+      }
+    }
+    console.log(newRecipes);
+    // Set this.tasks to newTasks
+    this.recipes = newRecipes;
   }
 }

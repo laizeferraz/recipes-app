@@ -185,3 +185,29 @@ addIngredient.addEventListener("click", () => {
   recipeManager.addIngredient(recipeIngredients.value);
   recipeIngredients.value = "";
 });
+
+const recipeList = document.querySelector("#new-recipe");
+
+recipeList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-button")) {
+    console.log(e.target);
+    // Get the parent Task
+    const parentRecipe = e.target.parentElement.parentElement;
+    console.log(parentRecipe);
+
+    // Get the taskId of the parent Task.
+    const recipeId = Number(parentRecipe.dataset.recipeId);
+
+    console.log(parentRecipe.dataset);
+    console.log(recipeId);
+
+    // Delete the task
+    recipeManager.deleteRecipe(recipeId);
+
+    // Save the tasks to localStorage
+    recipeManager.save();
+
+    // Render the tasks
+    recipeManager.render();
+  }
+});
