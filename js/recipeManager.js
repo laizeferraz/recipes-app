@@ -60,20 +60,20 @@ export class RecipeManager {
     this.recipes.push(newRecipe);
   }
 
-  getTaskById(recipeId) {
-    // Create a variable to store the found task
+  getRecipeById(recipeId) {
+    // Create a variable to store the found recipe
     let foundRecipe;
-    // Loop over the tasks and find the task with the id passed as a parameter
+    // Loop over the recipes and find the recipe with the id passed as a parameter
     for (let i = 0; i < this.recipes.length; i++) {
-      // Get the current task in the loop
+      // Get the current Recipe in the loop
       const recipe = this.recipes[i];
-      // Check if its the right task by comparing the task's id to the id passed as a parameter
+      // Check if its the right recipe by comparing the Recipe's id to the id passed as a parameter
       if (recipe.id === recipeId) {
-        // Store the task in the foundTask variable
+        // Store the recipe in the foundRecipe variable
         foundRecipe = recipe;
       }
     }
-    // Return the found task
+    // Return the found recipe
     console.log(foundRecipe);
     return foundRecipe;
   }
@@ -110,7 +110,7 @@ export class RecipeManager {
   }
 
   save() {
-    // Create a JSON string of the tasks
+    // Create a JSON string of the recipes
     const recipesJson = JSON.stringify(this.recipes);
 
     // Store the JSON string in localStorage
@@ -124,12 +124,12 @@ export class RecipeManager {
   }
 
   load() {
-    // Check if any tasks are saved in localStorage
+    // Check if any recipes are saved in localStorage
     if (localStorage.getItem("recipes")) {
-      // Get the JSON string of tasks in localStorage
+      // Get the JSON string of recipes in localStorage
       const recipesJson = localStorage.getItem("recipes");
 
-      // Convert it to an array and store it in our TaskManager
+      // Convert it to an array and store it in our recipeManager
       this.recipes = JSON.parse(recipesJson);
     }
 
@@ -138,29 +138,50 @@ export class RecipeManager {
       // Get the currentId string in localStorage
       const id = localStorage.getItem("id");
 
-      // Convert the currentId to a number and store it in our TaskManager
+      // Convert the currentId to a number and store it in our RecipeManager
       this.id = Number(id);
     }
   }
 
   deleteRecipe(recipeId) {
-    // Create an empty array and store it in a new variable, newTasks
+    // Create an empty array and store it in a new variable, newRecipes
     const newRecipes = [];
 
-    // Loop over the tasks
+    // Loop over the recipes
     for (let i = 0; i < this.recipes.length; i++) {
-      // Get the current task in the loop
+      // Get the current recipe in the loop
       const recipe = this.recipes[i];
       console.log(recipe);
 
-      // Check if the task id is not the task id passed in as a parameter
+      // Check if the recipe id is not the recipe id passed in as a parameter
       if (recipe.id !== recipeId) {
-        // Push the task to the newTasks array
+        // Push the recipe to the newRecipes array
         newRecipes.push(recipe);
       }
     }
     console.log(newRecipes);
-    // Set this.tasks to newTasks
+    // Set this.recipes to newRecipes
+    this.recipes = newRecipes;
+  }
+
+  editRecipe(recipeId) {
+    // Create an empty array and store it in a new variable, newRecipes
+    const newRecipes = [];
+
+    // Loop over the recipes
+    for (let i = 0; i < this.recipes.length; i++) {
+      // Get the current recipe in the loop
+      const recipe = this.recipes[i];
+      console.log(recipe);
+
+      // Check if the recipe id is not the recipe id passed in as a parameter
+      if (recipe.id !== recipeId) {
+        // Push the recipe to the newRecipes array
+        newRecipes.push(recipe);
+      }
+    }
+    console.log(newRecipes);
+    // Set this.recipes to newRecipes
     this.recipes = newRecipes;
   }
 }
